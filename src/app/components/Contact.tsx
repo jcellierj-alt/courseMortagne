@@ -1,6 +1,23 @@
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from 'lucide-react';
+import { FormEvent } from 'react';
 
 export function Contact() {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const name = (formData.get('name') as string) || '';
+    const email = (formData.get('email') as string) || '';
+    const message = (formData.get('message') as string) || '';
+
+    const subject = encodeURIComponent('Nouveau message depuis le site de la course');
+    const body = encodeURIComponent(
+      `Nom : ${name}\nEmail : ${email}\n\nMessage :\n${message}`
+    );
+
+    window.location.href = `mailto:info@citymarathon.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <section id="contact" className="py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
@@ -87,7 +104,7 @@ export function Contact() {
           {/* Contact Form */}
           <div>
             <h3 className="text-2xl mb-6">Envoyez-nous un message</h3>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block mb-2 text-gray-700">
                   Nom
@@ -95,6 +112,7 @@ export function Contact() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Votre nom"
                 />
@@ -107,6 +125,7 @@ export function Contact() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="votre@email.com"
                 />
@@ -118,6 +137,7 @@ export function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={5}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                   placeholder="Comment pouvons-nous vous aider ?"
