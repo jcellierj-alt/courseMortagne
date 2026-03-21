@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Clock, Users, Award, Mail, Phone, Facebook, Twitter, Instagram } from 'lucide-react';
+import { MapPin, Clock, Users, Award, Mail, Phone, Facebook, Twitter, Instagram } from 'lucide-react';
 import { Button } from './components/ui/button';
 import { Card, CardContent } from './components/ui/card';
 import { Input } from './components/ui/input';
@@ -15,8 +15,8 @@ export default function App() {
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="text-xl font-bold text-blue-600">
-              Course Mortagne-au-Perche
+            <div className="ml-[30px] text-xl font-bold text-[#a8c92f]">
+              Le Trail des Perchés
             </div>
             <div className="hidden md:flex space-x-8">
               <a href="#accueil" className="text-gray-700 hover:text-blue-600 transition">Accueil</a>
@@ -26,8 +26,14 @@ export default function App() {
               <a href="#partenaires" className="text-gray-700 hover:text-blue-600 transition">Partenaires</a>
               <a href="#contact" className="text-gray-700 hover:text-blue-600 transition">Contact</a>
             </div>
-            <Button className="bg-blue-600 hover:bg-blue-700">
-              Inscription
+            <Button asChild className="bg-blue-600 hover:bg-blue-700">
+              <a
+                href="https://www.finishers.com/course/le-trail-des-perches"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Inscription
+              </a>
             </Button>
           </div>
         </div>
@@ -35,44 +41,27 @@ export default function App() {
 
       {/* Hero Section */}
       <section id="accueil" className="pt-16">
-        <div className="relative h-[600px] overflow-hidden">
+        <div className="relative">
           <img 
             src={heroBanner} 
             alt="Trail des Perches" 
-            className="w-full h-full object-cover"
+            className="w-full h-auto block"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 flex items-center">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-              <div className="max-w-2xl text-white">
-                <h1 className="text-5xl md:text-6xl font-bold mb-4">
-                  Le Trail des Perches
-                </h1>
-                <p className="text-2xl mb-2">Mortagne-au-Perche 2026</p>
-                <p className="text-xl mb-8 opacity-90">
-                  Rejoignez-nous pour une expérience de course inoubliable à travers le cœur de notre ville
-                </p>
-                <div className="flex flex-wrap gap-6 mb-8">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-5 h-5" />
-                    <span>19 Septembre 2026</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-5 h-5" />
-                    <span>Site de l'Hippodrome</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="w-5 h-5" />
-                    <span>2 Courses: 6 km & 12 km</span>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <Button size="lg" className="bg-lime-400 text-gray-900 hover:bg-lime-500 font-semibold">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="h-full flex items-end pb-[216px] pl-[58px] sm:pl-[98px]">
+              <div className="flex gap-4 pointer-events-auto">
+                <Button size="lg" asChild className="bg-lime-400 text-gray-900 hover:bg-lime-500 font-semibold">
+                  <a
+                    href="https://www.finishers.com/course/le-trail-des-perches"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     S'inscrire maintenant
-                  </Button>
-                  <Button size="lg" variant="outline" className="bg-white/10 text-white border-white hover:bg-white/20">
-                    Voir le programme
-                  </Button>
-                </div>
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" className="bg-white/10 text-white border-white hover:bg-white/20">
+                  Voir le programme
+                </Button>
               </div>
             </div>
           </div>
@@ -138,15 +127,15 @@ export default function App() {
               />
             </div>
             <div>
-              <h3 className="text-3xl font-bold mb-6">Le Trail des Perches</h3>
+              <h3 className="text-3xl font-bold mb-6">Le Trail des Perchés</h3>
               <p className="text-gray-600 mb-4">
                 L'Athletic Club Mortagnais est fier de vous présenter le Trail des Perches, une course exceptionnelle qui vous fera découvrir le charme authentique de Mortagne-au-Perche.
               </p>
               <p className="text-gray-600 mb-4">
-                Que vous soyez coureur débutant ou expérimenté, nos deux parcours de 6 km et 12 km sont conçus pour offrir un défi adapté à tous les niveaux. Traversez les rues pavées historiques, admirez l'architecture médiévale et profitez de l'ambiance festive qui règne dans toute la ville.
+                Que vous soyez coureur débutant ou expérimenté, nos deux parcours de 6.5 km et 13 km sont conçus pour offrir un défi adapté à tous les niveaux. Traversez les rues pavées historiques et profitez de l'ambiance festive qui règne dans toute la ville.
               </p>
               <p className="text-gray-600">
-                Cet événement est bien plus qu'une simple course - c'est une célébration de notre communauté, de notre patrimoine et de l'esprit sportif qui nous unit.
+                Cet événement est bien plus qu'une simple course, c'est une célébration de notre communauté, de notre patrimoine et de l'esprit sportif qui nous unit.
               </p>
             </div>
           </div>
@@ -170,10 +159,10 @@ export default function App() {
               <CardContent className="pt-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-xl">6</span>
+                    <span className="text-white font-bold text-xl">6,5</span>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Course 6 km</h3>
+                    <h3 className="text-2xl font-bold text-gray-900">Course 6,5 km</h3>
                     <p className="text-gray-600">Parcours découverte</p>
                   </div>
                 </div>
@@ -202,10 +191,10 @@ export default function App() {
               <CardContent className="pt-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-lime-500 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-900 font-bold text-xl">12</span>
+                    <span className="text-gray-900 font-bold text-xl">13</span>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">Course 12 km</h3>
+                    <h3 className="text-2xl font-bold text-gray-900">Course 13 km</h3>
                     <p className="text-gray-600">Parcours sportif</p>
                   </div>
                 </div>
@@ -242,10 +231,7 @@ export default function App() {
                   <h4 className="font-semibold text-lg mb-3">📍 Lieu</h4>
                   <p className="mb-4">Site de l'Hippodrome, Mortagne-au-Perche</p>
                   
-                  <h4 className="font-semibold text-lg mb-3">📅 Date et horaires</h4>
-                  <p className="mb-2"><strong>Jeudi 18 septembre 2026</strong></p>
-                  <p className="mb-4">14h00 - 19h00</p>
-                  
+                  <h4 className="font-semibold text-lg mb-3">📅 Date et horaires</h4>                  
                   <p className="mb-2"><strong>Vendredi 19 septembre 2026</strong></p>
                   <p>07h00 - 08h30 (jour de la course)</p>
                 </div>
@@ -262,7 +248,7 @@ export default function App() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span>✓</span>
-                      <span>Certificat médical de moins d'un an (ou licence FFA en cours)</span>
+                      <span>Une attestation PPS datant de moins d'un an</span>
                     </li>
                   </ul>
                   
@@ -347,9 +333,9 @@ export default function App() {
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-2xl font-bold text-blue-600">09h00</span>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">Départ Course 6 km</h3>
+                    <h3 className="text-xl font-semibold mb-2">Départ Course 6,5 km</h3>
                     <p className="text-gray-600">
-                      Top départ pour le parcours découverte de 6 kilomètres
+                      Top départ pour le parcours découverte de 6,5 kilomètres
                     </p>
                   </div>
                 </div>
@@ -368,9 +354,9 @@ export default function App() {
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-2xl font-bold text-lime-600">09h15</span>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">Départ Course 12 km</h3>
+                    <h3 className="text-xl font-semibold mb-2">Départ Course 13 km</h3>
                     <p className="text-gray-600">
-                      Top départ pour le parcours sportif de 12 kilomètres
+                      Top départ pour le parcours sportif de 13 kilomètres
                     </p>
                   </div>
                 </div>
@@ -563,15 +549,24 @@ export default function App() {
               <h3 className="text-2xl font-semibold mb-6">Envoyez-nous un message</h3>
               <Card>
                 <CardContent className="pt-6">
-                  <form className="space-y-4">
+                  <form
+                    className="space-y-4"
+                    action="https://formsubmit.co/jcellierj@gmail.com"
+                    method="POST"
+                  >
+                    <input type="hidden" name="_subject" value="Nouveau message depuis le site" />
+                    <input type="hidden" name="_template" value="table" />
+                    <input type="hidden" name="_captcha" value="false" />
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
                         Nom
                       </label>
                       <Input 
                         id="name" 
+                        name="name"
                         placeholder="Votre nom" 
                         className="w-full"
+                        required
                       />
                     </div>
 
@@ -581,9 +576,11 @@ export default function App() {
                       </label>
                       <Input 
                         id="email" 
+                        name="email"
                         type="email" 
                         placeholder="votre@email.com" 
                         className="w-full"
+                        required
                       />
                     </div>
 
@@ -593,9 +590,11 @@ export default function App() {
                       </label>
                       <Textarea 
                         id="message" 
+                        name="message"
                         placeholder="Comment pouvons-nous vous aider ?" 
                         rows={6}
                         className="w-full"
+                        required
                       />
                     </div>
 
@@ -615,9 +614,9 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h4 className="font-bold text-xl mb-4">Course Mortagne-au-Perche</h4>
+              <h4 className="font-bold text-xl mb-4">Le Trail des Perchés</h4>
               <p className="text-gray-400">
-                Le Trail des Perches - Une expérience de course unique au cœur du Perche
+                Une expérience de course unique au cœur du Perche
               </p>
             </div>
             
@@ -643,7 +642,7 @@ export default function App() {
           </div>
           
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>© 2026 Course Mortagne-au-Perche. Tous droits réservés.</p>
+            <p>© 2026 Le Trail des Perchés. Tous droits réservés.</p>
           </div>
         </div>
       </footer>
