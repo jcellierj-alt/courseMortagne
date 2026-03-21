@@ -3,9 +3,10 @@ import { Button } from './components/ui/button';
 import { Card, CardContent } from './components/ui/card';
 import { Input } from './components/ui/input';
 import { Textarea } from './components/ui/textarea';
-import heroBanner from 'figma:asset/79ace575950bd655c8bee610ac189fc720814648.png';
-import eventPoster from 'figma:asset/3296355a3b9393fca201f1c8634d86ff6b659d83.png';
-import qrCode from 'figma:asset/b4b8eab7f52c0fcad802f6df251812f866c98886.png';
+
+const heroBanner = '/images/hero-banner.png';
+const eventPoster = '/images/event-poster.png';
+const qrCode = '/images/qr-code.png';
 
 export default function App() {
   return (
